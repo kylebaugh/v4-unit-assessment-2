@@ -12,3 +12,181 @@ the font is called 'nunito' and can be found on google fonts
 ***you can use it if you'd like or you can choose your own***
 
 */
+
+*{
+    box-sizing: border-box;
+}
+
+*{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 16px;
+}
+
+
+.body{
+    margin: 0%;
+    height: fit-content;
+    background-color: white;
+}
+
+.topBar{
+    width: 100vw;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    background-color: black;
+    margin-bottom: 100px;
+    z-index: 1;
+}
+
+.logo {
+    width: 50vw;
+    font-size: 30px;
+    color: rgb(42, 171,226);
+    justify-content: flex-start;
+    margin-right: 30vw;
+    padding-left: 15px;
+}
+
+.menu{
+    height: 50px;
+    width: 50vw;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    color: white;
+    padding-top: 10px;    
+
+}
+
+.zone1{
+    color: black;
+    position:relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-top: 75px;
+    padding-right: 10vw;
+    /* margin: auto; */
+}
+
+.skillsCheck {
+    width: 45vw;
+    height: fit-content;
+    padding-left: 10vw;
+}
+
+.profilesAndArticles{
+    /* position: relative; */
+    padding-left: -10vw;
+    width: 25vw;
+    height: 250px;
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
+}
+.yourName{
+    
+}
+
+.profile{
+    width: 12.5vw;
+    height: auto;
+    position:relative;
+    /* border-style: solid;
+    border-color: white; */
+    border-style:hidden;
+    box-shadow: 0px 0px 2px 2px rgba(102, 75, 75, .3);
+}
+
+.popularArticles{
+    width: 12.5vw;
+    position: relative;
+    height: fit-content;
+    border-style:hidden;
+    box-shadow: 0px 0px 2px 2px rgba(102, 75, 75, .3);
+    padding-top: 10px;
+    padding-bottom: 7.5px;
+    /* margin-bottom: auto; */
+}
+
+.zone2{
+    display: flex;
+    width: 45vw;
+    height: fit-content;
+    position: relative;
+    /* justify-content: space-between; */
+    padding-left: 10vw;
+    padding-top: 150px;
+    flex-direction: column;
+}
+
+.galleryHeader{
+    color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.learnCode{
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.viewLarger{
+    color: rgb(42, 171, 226);
+    font-size: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.images{
+    width: 40vw;
+    height: fit-content;
+    position: relative;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.picture{
+    width: 10vw;
+    height: auto;
+}
+
+.bottomBar{
+    background-color: rgb(42, 171, 226);
+    position:relative;
+        top:100%;
+    color: black;
+    width: 100vw;
+    height: 38px;
+    justify-content: space-between;
+    padding-bottom: 0%;
+}
+
+.learnCode{
+    font-size: 12px;
+    /* position: relative; */
+    padding-top: 1.5px;
+    padding-left: 15px;
+    margin-bottom: 0%;
+}
+
+.questionCircle{
+    width: 25px;
+    height: 25px;
+    background-color: rgb(42, 171, 226);
+    border-style: solid;
+    border-radius: 50%;
+    border-color: black;
+    align-items: center;
+    line-height: 0%;
+    position: fixed;
+        right: 7.5px;
+        bottom: 7.5px;
+}
