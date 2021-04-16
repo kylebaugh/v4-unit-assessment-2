@@ -27,6 +27,7 @@ the font is called 'nunito' and can be found on google fonts
     margin: 0%;
     height: fit-content;
     background-color: white;
+    padding: auto;
 }
 
 .topBar{
