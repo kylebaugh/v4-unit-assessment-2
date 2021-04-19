@@ -10,6 +10,10 @@
 
 //CODE HERE
 
+const array = ['cat', 'dog', 'bird']
+
+const myArr = [4, 'abc', array, 77]
+
 
 ////////////////////PROBLEM 2////////////////////
 /*
@@ -21,6 +25,8 @@
 const nestedLetters = ['m', 'g', 'e', 'q', 'h', ['n', 'b', ['v', 'z', 'y', 'r']], 'a']
 
 //CODE HERE
+
+const foundZ = nestedLetters[5][2][1]
 
 
 ////////////////////PROBLEM 3////////////////////
@@ -38,6 +44,7 @@ const desert = ['rattlesnake', 'coyote']
 
 //CODE HERE
 
+const animals = [...forest, ...ocean, ...savannah, ...desert]
 
 /*
     Now use the spread operator to make a copy of your animals array.
@@ -45,6 +52,8 @@ const desert = ['rattlesnake', 'coyote']
 */
 
 //CODE HERE
+
+const animalsCopy = [...animals, 'elephant']
 
 
 ////////////////////PROBLEM 4////////////////////
@@ -57,6 +66,8 @@ const desert = ['rattlesnake', 'coyote']
 
 //CODE HERE
 
+let compareNums = (num1, num2) => num1 > num2 ? num1 : num2
+
   
 ////////////////////PROBLEM 5////////////////////
 /*
@@ -68,6 +79,8 @@ const desert = ['rattlesnake', 'coyote']
 */
 
 //CODE HERE
+
+let bestMovie = (movie) => `${movie} is the best movie ever!`
   
   
 ////////////////////PROBLEM 6////////////////////
@@ -76,6 +89,8 @@ const desert = ['rattlesnake', 'coyote']
 */
 
 //CODE HERE
+
+let jsNinja = () => 'I am a JavaScript ninja!'
   
 
 ////////////////////PROBLEM 7////////////////////
@@ -97,7 +112,8 @@ const desert = ['rattlesnake', 'coyote']
 */
 
 //CODE HERE
-  
+
+delete gameInfo.rating
 
 ////////////////////PROBLEM 8////////////////////
 
@@ -119,6 +135,12 @@ const desert = ['rattlesnake', 'coyote']
 */
 
 //CODE HERE
+
+for(let key in shapes){
+    console.log(shapes[key])
+    if ((shapes[key]) % 2 !== 0)
+      delete shapes[key]
+  }
   
   
 ////////////////////PROBLEM 9////////////////////
@@ -162,6 +184,13 @@ const classes = [
 
 //CODE HERE
 
+for (let i = 0; i < classes.length; i++){
+    let obj = classes[i]
+    for (let key in obj){
+        if ((obj[key]) === true)
+            (obj[key]) = false
+    }
+}
   
 ////////////////////PROBLEM 10////////////////////
 /*
@@ -178,7 +207,21 @@ let pairsArray = []
 
 //CODE HERE
 
-    
+
+for(let i = 0; i < lettersToPair.length; i++){
+    // let pos1 = lettersToPair[i]
+    // console.log(lettersToPair[i])
+    for(let k = i; k < lettersToPair.length; k++){
+      // console.log(lettersToPair[k])
+        if (lettersToPair[i] === lettersToPair[k] && (i !== k) && (k !== i)
+        //  && lettersToPair[k] !== lettersToPair[i]
+        //  && lettersToPair[i] !== lettersToPair[i] && lettersToPair[k] !== lettersToPair[k]
+         ){
+            pairsArray.push([i, k])
+        }
+     
+    }
+}
 
 //////////////////////////////////PROBLEMS 11-14//////////////////////////////////
 /*
@@ -195,6 +238,13 @@ let pairsArray = []
 
 //CODE HERE
 
+function Dog(name, age, breed, tricks){
+    this.name = name
+    this.age = age
+    this.breed = breed
+    this.tricks = tricks
+}
+
 
 /*
     Invoke your dog constructor passing in 'Fido' for the name, 3 for the age, 
@@ -203,17 +253,28 @@ let pairsArray = []
 */
 
 //CODE HERE
+
+let fido = new Dog('Fido', 3, 'Jack Russell', ['sit', 'shake'])
   
 
 ////////////////////PROBLEM 12////////////////////
 /*
-    Write a function called 'bark' that will return the string: 'NAME says bark!'
+    Write a function called 'bark' that will return the string: 
+    'NAME says bark!'
     You will give context to 'bark' using the .call method.
-    NAME will come from that context, so you should reference 'this.name' to get the correct name.
+    NAME will come from that context, so you should reference
+    'this.name' to get 
+    the correct name.
 */
 
 //CODE HERE
 
+
+function bark(){
+    return `${this.name} says bark!`
+}
+
+// const fidoSpeak = bark.call(fido)
 
 /*
     Invoke the call method on bark, passing in fido as the context
@@ -221,36 +282,58 @@ let pairsArray = []
 */
 
 //CODE HERE
+
+const fidoSpeak = bark.call(fido)
   
   
 ////////////////////PROBLEM 13////////////////////
 /*
-    Write a function called 'teachTrick' that will take in one parameter, trick, 
-    and push that trick into a trick's array and return the updated array.
+    Write a function called 'teachTrick' that will take in one parameter,
+     trick, 
+    and push that trick into a trick's array and return the
+     updated array.
     You will give context to 'techTrick' using the .bind method.
-    Tricks will come from that context, so you should reference 'this.tricks' to access the correct array.
+    Tricks will come from that context, so you should 
+    reference 'this.tricks' to access the correct array.
 */
 
 //CODE HERE
 
+function teachTrick(trick){
+    this.tricks.push(trick)
+    return this.tricks
+}
+
+
 
 /*
-    Invoke the bind method on teachTrick, passing in fido as the context and the string 'stay' as a trick.
+    Invoke the bind method on teachTrick, passing in fido as the 
+    context and the string 'stay' as a trick.
     Save the result to a variable called 'teachStay'.
 */
 
 //CODE HERE
-  
+
+let teachStay = teachTrick.bind(fido, 'stay')
+
   
 ////////////////////PROBLEM 14////////////////////
 /*
-    Write a function called 'dogIntro' that will take in two parameters, treat and toy,
-    and return the string: 'NAME is a BREED that loves TREAT and their TOY!'
+    Write a function called 'dogIntro' that will take in two parameters, 
+    treat and toy,
+    and return the string: 
+    'NAME is a BREED that loves TREAT and their TOY!'
     You will give context to 'dogIntro' using the .apply method.
-    Remember to use the 'this' keyword to access values from the context that you will apply.
+    Remember to use the 'this' keyword to access values from the 
+    context that you will apply.
 */
 
 //CODE HERE
+
+function dogIntro(treat, toy){
+    return `${this.name} is a ${this.breed} that loves ${treat} and their ${toy}!`
+}
+
 
 
 /*
@@ -260,16 +343,28 @@ let pairsArray = []
 */
 
 //CODE HERE
-  
+
+let fidoIntro = dogIntro.apply(fido, ['chicken', 'tennis ball'])
+//   let dogIntro = appliedDogIntro()
 
 ////////////////////PROBLEM 15////////////////////
 /*
     Write a constructor function called Phone.
     Phone will build phone objects with brand, model, storage, color, and sold properties.
-    Those values should come from the function's parameters: brand, model, storage, color, sold (in order).
+    Those values should come from the function's parameters: brand, model, storage, color, 
+    sold (in order).
 */
 
 //CODE HERE
+
+function Phone(brand, model, storage, color, sold){
+    this.brand = brand
+    this.model = model
+    this.storage = storage
+    this.color = color
+    this.sold = sold
+}
+
 
   
 /*
@@ -284,11 +379,11 @@ let pairsArray = []
 */
 
 //CODE HERE
-  // let phone1 = 
+  let phone1 = new Phone('iPhone', 'Garbage', 32, 'Silver', false)
   
-  // let phone2 = 
+  let phone2 = new Phone('Samsung', 'S10+', 250, 'Black', false)
   
-  // let phone3 = 
+  let phone3 = new Phone('Walmart', 'Dumb', 1, 'Blue', false)
   
 /*
     Last, add a prototype method to Phone.
@@ -299,5 +394,10 @@ let pairsArray = []
 */
 
 //CODE HERE
+
+Phone.prototype.sell = function(){
+    this.sold = true
+    return `${this.brand} ${this.model} has been sold.`
+}
 
   

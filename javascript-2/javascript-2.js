@@ -30,12 +30,20 @@ let foods = [
 //DO NOT EDIT THE CODE ABOVE
 
 /*
-  Use the .forEach method to modify each food object in the foods array above to include calories. 
+  Use the .forEach method to modify each food object in the foods array above to include 
+  calories. 
   Calories can be calculated by multiplying carbs by 4, protein by 4, fat by 9, 
   and then adding the results together. 
 */
 
 //CODE HERE
+
+for (let i = 0; i < foods.length; i++)
+foods.forEach(function(carbs, protein, fat){
+  foods[i].calories = (
+    (foods[i].carbs * 4) + (foods[i].protein * 4) + (foods[i].fat * 9)
+    )
+})
 
 //////////////////////////////////PROBLEMS 2-4//////////////////////////////////
 /*
@@ -75,22 +83,33 @@ const products = [
 
 ////////////////////PROBLEM 2////////////////////
 /*
-  You've decided to have a sale on everything you have in stock. It's all going to be 25% off. 
-  Using the map method, make a copy of your products array with the prices reduced by 25%. 
+  You've decided to have a sale on everything you have in stock. 
+  It's all going to be 25% off. 
+  Using the map method, make a copy of your products array 
+  with the prices reduced by 25%. 
   Save the copy to a new variable called 'saleProducts'.
 */
 
 //CODE HERE
 
+let saleProducts = products.map(product => {
+  product.price  = product.price - product.price * .25
+  return product
+})
+
 ////////////////////PROBLEM 3////////////////////
 /*
-  A customer has placed an order - they want one of every product that has blue on it. 
-  Using the filter method on saleProducts, return the products that have blue in their color array 
+  A customer has placed an order - they want one of every product 
+  that has blue on it. 
+  Using the filter method on saleProducts, return the products 
+  that have blue in their color array 
   to a new variable called 'blueProducts'. 
   (Hint: look up the array method 'includes' on MDN)
 */
 
 //CODE HERE
+
+let blueProducts = saleProducts.filter(product => product.color.includes('blue'))
 
 ////////////////////PROBLEM 4////////////////////
 /*
@@ -100,6 +119,13 @@ const products = [
 */
 
 //CODE HERE
+
+const orderTotal = blueProducts.reduce(function(acc, curr) {
+  return acc + curr.price
+  console.log(acc)
+  console.log('=======================')
+  console.log(curr)
+}, 0)
 
 //////////////////////////////////PROBLEMS 5-8//////////////////////////////////
 /*
@@ -131,6 +157,8 @@ const shippingInfo = {
 
 //CODE HERE
 
+const helensInfo = Object.assign(contactInfo, shippingInfo)
+
 ////////////////////PROBLEM 6////////////////////
 /*
   Helen has a daughter named Ellen that lives at the same address.
@@ -140,12 +168,19 @@ const shippingInfo = {
 
 //CODE HERE
 
+const ellensInfo = {...helensInfo}
+  ellensInfo.name = 'Ellen'
+  ellensInfo.email = 'ellen@email.com'
+
 ////////////////////PROBLEM 7////////////////////
 /* 
   Save Ellen's email to a new variable using destructuring.
 */
 
 //CODE HERE
+
+const {email} = ellensInfo
+
 
 ////////////////////PROBLEM 8////////////////////
 /*
@@ -154,6 +189,8 @@ const shippingInfo = {
 */
 
 //CODE HERE
+
+const {zipCode, state} = shippingInfo
 
 //////////////////////////////////PROBLEMS 9-11//////////////////////////////////
 /*
@@ -217,6 +254,9 @@ const userInfo = {
 
 //CODE HERE
 
+const shouldAlert = userInfo.settings.alerts
+
+
 ////////////////////PROBLEM 10////////////////////
 /*
   Set the value of topic below to the last item in gn@rly_c0der_007's topics array
@@ -225,6 +265,8 @@ const userInfo = {
 
 //CODE HERE
 
+const topic = userInfo.topics[userInfo.topics.length - 1]
+
 ////////////////////PROBLEM 11////////////////////
 /*
   Set the value of commenterId below to the userId of the first response to 
@@ -232,6 +274,8 @@ const userInfo = {
 */
 
 //CODE HERE
+
+const commenterId = userInfo.comments[1].responses[0].userId
 
 ////////////////////PROBLEM 12////////////////////
 /*
@@ -251,6 +295,30 @@ const userInfo = {
 */
 
 //CODE HERE
+
+const person = {
+  name: 'Josh',
+  age: 29,
+  jobs: ['Web Developer', 'Wash Boy', 'Intern'],
+  birthday: function(){
+    this.age = this.age + 1
+  },
+  favorites: {
+    color: 'purple',
+    number: 42, 
+    book: 'Ether', 
+  },
+  kids: [
+      {
+      name: 'Kid 1',
+      age: 4
+    },
+    {
+      name: 'Kid 2',
+      age: 16
+    }
+  ]
+}
 
 //////////////////////////////////PROBLEMS 13-14//////////////////////////////////
 /*
@@ -276,7 +344,7 @@ const workout = {
 //let context1 = myFunc
 //let context1 = window
 //let context1 = global
-// let context1 = workout
+let context1 = workout
 
 ////////////////////PROBLEM 14////////////////////
 /*
@@ -288,7 +356,7 @@ function myFunc() {
   return this
 }
 
-//let context2 = myFunc
-// let context2 = window
-//let context2 = global
+// let context2 = myFunc
+let context2 = window
+// let context2 = global
 //let context2 = workout
